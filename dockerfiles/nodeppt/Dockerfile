@@ -29,8 +29,8 @@ RUN apk add --no-cache bind-tools
 # Use the non-root user to run our application
 USER nonroot
 
-RUN touch /ppts/example.md
 RUN mkdir -p /ppts
+RUN touch /ppts/example.md
 RUN npm i nodeppt -g
 VOLUME ["/ppts"]
 CMD ["nodeppt", "start", "-d", "/ppts"]
