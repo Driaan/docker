@@ -1,0 +1,14 @@
+name: docker
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: build ppt docker image
+      run: docker build . --file dockerfiles/nodeppt/Dockerfile --tag nodeppt:$(date +%s)
