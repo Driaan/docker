@@ -32,4 +32,4 @@ jobs:
           file: dockerfiles/nodeppt/Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: user/app:latest
+          tags: driaan/nodeppt:latest
