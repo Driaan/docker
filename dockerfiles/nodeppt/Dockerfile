@@ -30,6 +30,7 @@ RUN apk add --no-cache bind-tools
 USER nonroot
 
 RUN touch /ppts/example.md
+RUN mkdir -p /ppts
 RUN npm i nodeppt -g
 VOLUME ["/ppts"]
 CMD ["nodeppt", "start", "-d", "/ppts"]
