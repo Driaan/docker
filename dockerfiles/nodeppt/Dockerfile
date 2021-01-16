@@ -36,9 +36,9 @@ FROM node:10.23.1-alpine3.10
 # CMD ["nodeppt", "start", "-d", "/ppts"]
 # EXPOSE 8080
 
-ADD file:cb381165dec3689cf77e902c07ea78ca4da6bce4f5ac1909eebd40dba3273bfe in / 
-CMD ["/bin/sh"]
-ENV NODE_VERSION=8.9.3
+# ADD file:cb381165dec3689cf77e902c07ea78ca4da6bce4f5ac1909eebd40dba3273bfe in / 
+# CMD ["/bin/sh"]
+# ENV NODE_VERSION=8.9.3
 
 
 
