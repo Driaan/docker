@@ -29,9 +29,21 @@ FROM node:10.23.1-alpine3.10
 # Use the non-root user to run our application
 # USER nonroot
 
-RUN mkdir -p /ppts
-RUN touch /ppts/example.md
-RUN npm i nodeppt -g
-VOLUME ["/ppts"]
-CMD ["nodeppt", "start", "-d", "/ppts"]
-EXPOSE 8080
+# RUN mkdir -p /ppts
+# RUN touch /ppts/example.md
+# RUN npm i nodeppt -g
+# VOLUME ["/ppts"]
+# CMD ["nodeppt", "start", "-d", "/ppts"]
+# EXPOSE 8080
+
+ADD file:cb381165dec3689cf77e902c07ea78ca4da6bce4f5ac1909eebd40dba3273bfe in / 
+CMD ["/bin/sh"]
+ENV NODE_VERSION=8.9.3
+
+
+
+CMD /bin/sh -c npm i nodeppt -g
+VOLUME [/ppts]
+EXPOSE 8080/tcp
+CMD ["nodeppt" "start" "-d" "/ppts"]
+
