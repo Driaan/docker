@@ -76,7 +76,7 @@ RUN echo "--------------------------------------" && \
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
 ADD StartHere.ipynb /etc/skel
-COPY dockerfiles/jupyterhub/scripts /scripts
+COPY scripts /scripts
 
 RUN chmod -R 755 /scripts && \
     jupyter trust /etc/skel/StartHere.ipynb
