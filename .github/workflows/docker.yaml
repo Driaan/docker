@@ -53,6 +53,6 @@ jobs:
         with:
           context: .
           file: dockerfiles/jupyterhub/Dockerfile
-          platforms: linux/amd64,linux/arm64,linux/386
+          platforms: linux/amd64
           push: true
           tags: driaan/jupyterhub:latest
