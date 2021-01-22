@@ -29,18 +29,30 @@ RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64
     conda update conda && \
     conda clean --all --yes
 
-RUN conda install -c conda-forge -c pytorch -c krinsman jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
+RUN conda install -c conda-forge -c pytorch -c krinsman go jupyterhub jupyterlab notebook nbgitpuller matplotlib tensorflow \
                                                         pytorch torchvision torchaudio torchtext \
                                                         xeus-cling \
                                                         ipywidgets beakerx \
                                                         bash_kernel \
-                                                        nodejs \
+                                                        nodejs=12 \
                                                         ijavascript && \
     conda clean --all --yes
     
 RUN npm rebuild
 
 RUN npm install -g --unsafe-perm ijavascript && ijsinstall --hide-undefined --install=global
+
+RUN pip3 install --upgrade metakernel
+RUN pip3 install --upgrade calysto-scheme
+RUN pip3 install --upgrade jupyterlab-system-monitor
+
+
+RUN conda install -y gxx_linux-64
+
+
+
+# RUN go get github.com/gopherdata/gophernotes \
+#     mkdir -p /usr/local/share/jupyter/kernels/gophernotes \
 
 #RUN npm install -g --unsafe-perm itypescript && its --ts-hide-undefined --install=global
 
@@ -84,3 +96,8 @@ RUN chmod -R 755 /scripts && \
 EXPOSE 8000
 
 CMD "/scripts/sys/init.sh"
+
+
+
+# conda install -c conda-forge nodejs=12
+# jupyter lab build
