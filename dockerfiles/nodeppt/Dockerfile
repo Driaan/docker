@@ -1,7 +1,8 @@
 # Replace latest with a pinned version tag from https://hub.docker.com/_/alpine
 #
 # We suggest using the major.minor tag, not major.minor.patch.
-FROM node:10.23.1-alpine3.10
+FROM node:current-alpine3.12
+
 
 # # Non-root user for security purposes.
 # #
@@ -40,10 +41,11 @@ FROM node:10.23.1-alpine3.10
 # CMD ["/bin/sh"]
 # ENV NODE_VERSION=8.9.3
 
+RUN npm install -g nodeppt@2.2.2
 
-
-CMD /bin/sh -c npm i nodeppt -g
 VOLUME [/ppts]
+
 EXPOSE 8080/tcp
+
 CMD ["nodeppt" "start" "-d" "/ppts"]
  
